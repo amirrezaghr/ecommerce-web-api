@@ -13,7 +13,10 @@ namespace Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<ProductBrand> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(x => x.Description).HasMaxLength(1000);
+            builder.Property(x => x.Title).HasMaxLength(100);
+            builder.Property(x=>x.Summery).HasMaxLength(400);
+            builder.HasKey(x => x.Id);
         }
     }
 }

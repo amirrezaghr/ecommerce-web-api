@@ -1,4 +1,6 @@
 using Infrastructure;
+using Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Web;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,18 @@ builder.Services.AddInfrastactureServices(builder.Configuration);
 builder.AddWebServiceCollection();
 
 var app = builder.Build();
+var loggerFactory = app.Services.GetRequiredService<ILoggerFactory>();
+//auto migrations
+try
+{
+    var context = app.Services.GetRequiredService<ApplicationDbContext>();
+    await context.Database.MigrateAsync();
+}
+catch(Exception e)
+{
+    var logger = loggerFactory.CreateLogger<Program>();
+    logger.LogError(e, "error exeptions for migrations");
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

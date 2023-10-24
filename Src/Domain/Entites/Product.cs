@@ -18,8 +18,8 @@ public class Product : BaseAuditableEntity, ICommands
     //
 
     public string Description { get; set; }
-    public bool IsActive { get; set; }
-    public bool IsDelete { get; set; }
+    public bool IsActive { get; set; } = true;
+    public bool IsDelete { get; set; } = false;
     public string Summery { get; set; }
 
     public ProductType ProductType { get; set; }

@@ -15,6 +15,8 @@ namespace Infrastructure.Persistence
 
         }
         public DbSet<Product> Products => Set<Product>();
+        public DbSet<ProductType> ProductType => Set<ProductType>();
+        public DbSet<ProductBrand> ProductBrand => Set<ProductBrand>();
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

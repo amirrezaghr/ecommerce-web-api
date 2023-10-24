@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,13 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    internal class ConfigureServices
+    public static class ConfigureServices
     {
+        public static IServiceCollection AddInfrastactureServices(this IServiceCollection servicesCollection
+            ,IConfiguration configuration)
+        {
+
+            return servicesCollection;
+        }
     }
 }

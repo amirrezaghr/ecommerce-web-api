@@ -1,4 +1,5 @@
-﻿using Infrastructure.Persistence;
+﻿using Application.Contracts;
+using Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +20,7 @@ namespace Infrastructure
             {
                 option.UseSqlServer(configuration.GetConnectionString("DefualtConnection"));
             });
+            services.AddScoped(typeof(IGenericRepository<>), typeof(IGenericRepository<>));
             return services;
         }
     }

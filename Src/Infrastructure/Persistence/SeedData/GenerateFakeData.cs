@@ -1,4 +1,5 @@
 ﻿using Domain.Entites;
+using Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;

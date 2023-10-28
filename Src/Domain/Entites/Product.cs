@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Domain.Entites;
 
 public class Product : BaseAuditableEntity, ICommands
-    {
+{
         public string Title { get; set;}
     public decimal Price { get; set; }
     public string PictureUrl { get; set; }

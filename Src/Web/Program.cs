@@ -1,13 +1,12 @@
+using Application;
 using Infrastructure;
-using Infrastructure.Persistence;
-using Infrastructure.Persistence.SeedData;
-using Microsoft.EntityFrameworkCore;
 using Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 //configurations
+builder.Services.AddApplicationServices();
 builder.Services.AddInfrastactureServices(builder.Configuration);
 builder.AddWebConfigureService();
 //build

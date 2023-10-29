@@ -7,6 +7,9 @@ namespace Web.Controllers
 {
     public class ProductsController : BaseApiController
     {
-        private readonly IGenericRepository<Product> _repository;
+        public async Task<IActionResult> Get()
+        {
+            return Ok();
+        }
     }
 }

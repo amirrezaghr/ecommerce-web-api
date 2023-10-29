@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Infrastructure.Persistence;
 
 namespace Infrastructure
 {
@@ -18,9 +19,10 @@ namespace Infrastructure
         {
             services.AddDbContext<ApplicationDbContext>(option =>
             {
-                option.UseSqlServer(configuration.GetConnectionString("DefualtConnection"));
+                option.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
-            services.AddScoped(typeof(IGenericRepository<>), typeof(IGenericRepository<>));
+            //services.AddScoped(typeof(IGenericRepository<>), typeof(IGenericRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
         }
     }

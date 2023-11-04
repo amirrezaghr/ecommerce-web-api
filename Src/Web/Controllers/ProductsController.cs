@@ -1,4 +1,5 @@
 ﻿using Application.Contracts;
+using Application.Features.Products.Queries.GetAll;
 using Domain.Entites;
 using Microsoft.AspNetCore.Mvc;
 using Web.Common;
@@ -7,9 +8,10 @@ namespace Web.Controllers
 {
     public class ProductsController : BaseApiController
     {
-        public async Task<IActionResult> Get()
+        [HttpGet]
+        public async Task<IActionResult> Get(CancellationToken cancellationToken)
         {
-            return Ok();
+            return Ok(await Mediator.Send(new GetAllProductsQuery(),cancellationToken));
         }
     }
 }
